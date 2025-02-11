@@ -9,7 +9,8 @@ body {
 }
 
 header {
-    background: green;
+    background: url('your-image.jpg') no-repeat center center;
+    background-size: cover;
     padding: 15px 0;
     color: white;
 }
