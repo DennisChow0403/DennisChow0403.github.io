@@ -1,52 +1,251 @@
-/* styles.css */
+/* styles.css - modern aesthetic redesign */
+
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --muted: #65748b;
+    --accent: #3b82f6; /* blue */
+    --accent-2: #7c3aed; /* purple */
+    --radius: 12px;
+    --container-width: 1100px;
+}
+
+* { box-sizing: border-box; }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     margin: 0;
     padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
+    color: #0f1724;
+    background-color: var(--bg);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
-header {
-    background: url('https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fpolandball-map-of-europe-2022-v0-ulb15n0djvfa1.png%3Fauto%3Dwebp%26s%3Da15bec76a21da61a5f4033c68f1ec8e67ff9932d') no-repeat center center;
-    background-size: cover;
-    padding: 15px 0;
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-header {
+    background: linear-gradient(135deg,var(--accent) 0%, var(--accent-2) 100%);
     color: white;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
+.logo {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 20px;
 }
 
-section {
-    padding: 50px;
-    background: white;
-    margin: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.nav-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 22px;
 }
-#about {
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 18px;
+}
+
+.main-nav a {
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero {
+    padding: 60px 0 90px;
+}
+
+.hero-inner {
+    color: white;
     text-align: left;
 }
 
-footer {
-    background: #333;
+.hero h1 {
+    margin: 0 0 12px 0;
+    font-size: 40px;
+    line-height: 1.05;
+}
+
+.lead {
+    margin: 0 0 18px 0;
+    color: rgba(255,255,255,0.95);
+    font-size: 18px;
+}
+
+.cta {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
     color: white;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.section {
+    margin: 28px 0;
+    padding: 36px 0;
+}
+
+.section > .container {
+    background: var(--card);
+    padding: 28px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+h2 { margin-top: 0; }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+    align-items: start;
+}
+
+.about-card {
+    background: linear-gradient(180deg, rgba(59,130,246,0.06), transparent);
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+
+.project h3 { margin-top: 0; }
+
+.card-link, .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* Hover and focus states */
+.main-nav a:hover,
+.main-nav a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+.cta:hover,
+.card-link:hover,
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(59,130,246,0.18);
+}
+.cta:focus,
+.card-link:focus,
+.btn:focus {
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    outline: none;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(2,6,23,0.09);
+}
+
+/* Subtle entrance animation for sections and hero */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-inner,
+.section > .container,
+.card {
+    will-change: transform, opacity;
+    animation: fadeUp 420ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Staggered appearance for project cards */
+.projects-grid .card:nth-child(1) { animation-delay: 0ms; }
+.projects-grid .card:nth-child(2) { animation-delay: 90ms; }
+.projects-grid .card:nth-child(3) { animation-delay: 180ms; }
+.projects-grid .card:nth-child(4) { animation-delay: 270ms; }
+
+/* Buttons / links transition */
+a, button { transition: all 180ms ease; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .cta,
+    .card-link,
+    .btn,
+    .card,
+    .hero-inner,
+    .section > .container {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+textarea {
     width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef;
+}
+
+footer {
+    background: #0b1220;
+    color: rgba(255,255,255,0.85);
+    padding: 20px 0;
+}
+
+footer .container { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+
+@media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-toggle { display: inline-block; }
+    .main-nav { display: none; }
+    .main-nav.open { display: block; }
+    .main-nav ul { flex-direction: column; gap: 12px; }
+    .hero h1 { font-size: 30px; }
+}
+
+@media (min-width: 861px) {
+    .main-nav { display: block; }
 }

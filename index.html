@@ -8,49 +8,92 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#home">Daiming Zhou</a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <nav id="main-nav" class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="hero">
+            <div class="container hero-inner">
+                <h1>Welcome to my universe</h1>
+                <p class="lead">Hi, I'm <strong>Daiming Zhou</strong> — a sophomore at the University of Rochester, double-majoring in Data Science and Financial Economics.</p>
+                <a class="cta" href="#projects">See my work</a>
+            </div>
+        </div>
     </header>
     
-    <section id="home">
-        <h1>Welcome to My Universe!</h1>
-        <p>Hi, I'm <strong>Daiming Zhou</strong>. A sophomore student at University of Rochester double major in data science and financial economics.</p>
-    </section>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I was born in Shanghai, and my hometown is Guangzhou. So yes, I can speak both Shanghainese 腔思浓伐 and Cantonese 今日食咗乜嘢?</p>  
-        <p>I'm passionate about everything in empirical analysis, casual Inference and artificial intelligence. Regarding research, I'm a research assistant at UR Medical Center, supervised by Prof. Dongmei Li and Prof. Hill.</p>
-        <p>During spare time, I love playing the piano, Valorant, and listening to classical music. Mendelssohn e minor violin concerto and From the New World Chap. 4 are my favorite :-)</p>
-    </section>
-    
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of project 1.</p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of project 2.</p>
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I was born in Shanghai, and my hometown is Guangzhou. I speak both Shanghainese and Cantonese.</p>
+                    <p>I'm passionate about empirical analysis, causal inference, and artificial intelligence. I'm currently a research assistant at UR Medical Center under Prof. Dongmei Li and Prof. Hill.</p>
+                    <p>In my spare time I enjoy playing piano, competing in Valorant, and listening to classical music — Mendelssohn's E minor violin concerto and Dvořák's New World Symphony (Chap. 4) are favorites.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Quick Facts</h3>
+                    <ul>
+                        <li>Location: Rochester, NY</li>
+                        <li>Majors: Data Science & Financial Economics</li>
+                        <li>Research: UR Medical Center</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
     
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: Daimingzhou@hotmail.com</p>
-        <p>GitHub: <a href="https://github.com/DennisChow0403" target="_blank">DenisChow0403</a></p>
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <article class="card project">
+                    <h3>Project 1</h3>
+                    <p>Short description of project 1. Link to details coming soon.</p>
+                    <a class="card-link" href="#">View</a>
+                </article>
+                <article class="card project">
+                    <h3>Project 2</h3>
+                    <p>Short description of project 2. Link to details coming soon.</p>
+                    <a class="card-link" href="#">View</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="card contact-card">
+                    <h3>Get in touch</h3>
+                    <p>Email: <a href="mailto:Daimingzhou@hotmail.com">Daimingzhou@hotmail.com</a></p>
+                    <p>GitHub: <a href="https://github.com/DennisChow0403" target="_blank" rel="noopener">DennisChow0403</a></p>
+                </div>
+                <form class="card contact-form" action="#" onsubmit="return false;">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Say hi or ask about my projects..." rows="5"></textarea>
+                    <button type="submit" class="btn">Send (demo)</button>
+                </form>
+            </div>
+        </div>
     </section>
     
     <footer>
-        <p>&copy; 2025 Daiming Zhou. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> Daiming Zhou. All rights reserved.</p>
+            <p><small class="muted">Built with HTML, CSS & JavaScript</small></p>
+        </div>
     </footer>
 </body>
 </html>
+
